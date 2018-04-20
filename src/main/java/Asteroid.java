@@ -6,9 +6,9 @@ public class Asteroid implements GameObject {
 	private float vel;
 	// PImage img;
 
-	public Asteroid(int x_pos, int y_pos) {
+	public Asteroid() {
 		float velocity = 1;
-		reset(x_pos, y_pos, velocity);
+		reset(velocity);
 	}
 	
 	public void update() {
@@ -19,9 +19,9 @@ public class Asteroid implements GameObject {
 		
 	}
 	
-	public void reset(float x_pos, float y_pos, float velocity) {
-		this.x = x_pos;
-		this.y = y_pos;
+	public void reset(float velocity) {
+		this.x = (float) Math.random();  //need to change this for width
+		this.y = 0;
 		this.vel = velocity;
 	}
 	
