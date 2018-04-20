@@ -1,9 +1,12 @@
+package layers;
+
+import layers.Layer;
+
 /**
  * Created by sam on 20/04/18.
- *
- * Empty layer just above earth layer - for now.
  */
-public class EmptyLayer extends Layer {
+public class SpaceLayer extends Layer {
+
     @Override
     public void draw() {
 
@@ -14,4 +17,3 @@ public class EmptyLayer extends Layer {
 
     }
 }
-
