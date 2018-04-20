@@ -129,3 +129,9 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+
+#---------------------extras
+.idea/modules/BluJam2018.iml
+.idea/modules.xml
+.idea/misc.xml
+.gradle/
