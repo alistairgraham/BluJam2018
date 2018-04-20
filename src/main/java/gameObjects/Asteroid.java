@@ -1,3 +1,6 @@
+package gameObjects;
+
+import gameObjects.GameObject;
 
 public class Asteroid implements GameObject {
 	 

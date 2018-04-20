@@ -1,7 +1,9 @@
+package gameObjects.layers;
+
 /**
  * Created by sam on 20/04/18.
  */
-public class WindLayer extends Layer {
+public class EarthLayer extends Layer {
     @Override
     public void draw() {
 

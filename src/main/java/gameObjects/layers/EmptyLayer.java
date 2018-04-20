@@ -1,7 +1,11 @@
+package gameObjects.layers;
+
 /**
  * Created by sam on 20/04/18.
+ *
+ * Empty layer just above earth layer - for now.
  */
-public class CloudLayer extends Layer {
+public class EmptyLayer extends Layer {
     @Override
     public void draw() {
 
@@ -12,3 +16,4 @@ public class CloudLayer extends Layer {
 
     }
 }
+
