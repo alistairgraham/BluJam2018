@@ -25,7 +25,7 @@ public class PWindow extends Renderer{
         for (File folderItem : folderItems) {
             if (folderItem.isFile()) {
                 Debug.log("Loaded File: " + folderItem.getName() + " As: " + folderItem.getName().split("\\.")[0]);
-//                AssetHandler.loadImage(root + "/" + listOfFiles[i].getName(), listOfFiles[i].getName().split("\\.")[0], this);
+                ImageHandler.loadImageAsset(path + "/" + folderItem.getName(), folderItem.getName().split("\\.")[0], this);
             } else if (folderItem.isDirectory()) {
                 Debug.log("Directory " + folderItem.getName());
                 loadAssets(path + "/" + folderItem.getName());
