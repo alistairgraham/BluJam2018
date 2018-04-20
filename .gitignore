@@ -1,5 +1,8 @@
 #--------------Java Ignores
 
+.classpath
+.project
+
 # Compiled class file
 *.class
 
