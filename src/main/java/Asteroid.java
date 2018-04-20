@@ -1,9 +1,10 @@
 
 public class Asteroid implements GameObject {
-	
+	 
 	private float x;
 	private float y;
 	private float vel;
+	final float size = 20;
 	// PImage img;
 
 	public Asteroid(int x_pos, int y_pos) {
