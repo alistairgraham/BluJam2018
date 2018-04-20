@@ -1,2 +1,8 @@
 # BluJam2018
-BluJam 2018 code.
+
+## Team
+- Alex Mitchell
+- Alistair Graham
+- Callum Li
+- James Magallanes
+- Sam Ong
