@@ -10,9 +10,6 @@ public class Asteroid implements GameObject {
 		this.y = y_pos;
 	}
 
-	public int getX() {
-		return x;
-	}
 
 	public int getY() {
 		return y;
