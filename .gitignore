@@ -134,4 +134,7 @@ local.properties
 .idea/modules/BluJam2018.iml
 .idea/modules.xml
 .idea/misc.xml
+.idea/compiler.xml
+.idea/modules/BluJam2018_main.iml
+.idea/modules/BluJam2018_test.iml
 .gradle/
