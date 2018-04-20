@@ -5,6 +5,7 @@ public class Asteroid implements GameObject {
 	private float y;
 	private float vel;
 	final float size = 20;
+	final float width = 100;
 	// PImage img;
 
 	public Asteroid() {
@@ -12,8 +13,11 @@ public class Asteroid implements GameObject {
 		reset(velocity);
 	}
 	
-	public void update() {
-		
+	public void update(float dx, float dy) {
+		x += dx;
+		y += dy;
+		if (x < 0) x = 0;
+		else if (x > width) x = width;
 	}
 	
 	public void draw() {
