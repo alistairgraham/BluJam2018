@@ -8,7 +8,7 @@ public class Asteroid implements GameObject {
 	private float y;
 	private float vel;
 	final float size = 20;
-	final float width = 100;
+	public final static float screenWidth = 100;
 	// PImage img;
 
 	public Asteroid() {
@@ -17,8 +17,9 @@ public class Asteroid implements GameObject {
 	}
 	
 	public void update() {
-		if (x < 0) x = 0;
-		else if (x > width) x = width;
+		if (x < 0 || x > screenWidth) {
+			x = Math.min(screenWidth, Math.max(x, 0));
+		}
 	}
 	
 	public void draw() {
