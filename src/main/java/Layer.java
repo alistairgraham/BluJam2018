@@ -6,6 +6,7 @@ public abstract class Layer implements GameObject{
     public abstract void update();
 
     public boolean contains(Asteroid a){
+
         return false;
     }
 
