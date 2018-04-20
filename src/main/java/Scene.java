@@ -27,7 +27,13 @@ public class Scene {
         return layers;
     }
 
+    public void update(){
+        asteroid.update();
+        for(Layer layer : layers){
+            layer.update();
+        }
 
+    }
 
 
 }
