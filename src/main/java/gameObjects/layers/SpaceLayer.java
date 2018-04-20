@@ -1,11 +1,10 @@
-package layers;
-
-import layers.Layer;
+package gameObjects.layers;
 
 /**
  * Created by sam on 20/04/18.
  */
-public class WindLayer extends Layer {
+public class SpaceLayer extends Layer {
+
     @Override
     public void draw() {
 

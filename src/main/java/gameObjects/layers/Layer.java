@@ -1,4 +1,7 @@
-package layers;
+package gameObjects.layers;
+
+import gameObjects.Asteroid;
+import gameObjects.GameObject;
 
 /**
  * Created by sam on 20/04/18.
