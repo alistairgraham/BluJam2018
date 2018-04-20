@@ -16,9 +16,7 @@ public class Asteroid implements GameObject {
 		reset(velocity);
 	}
 	
-	public void update(float dx, float dy) {
-		x += dx;
-		y += dy;
+	public void update() {
 		if (x < 0) x = 0;
 		else if (x > width) x = width;
 	}
