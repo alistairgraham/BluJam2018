@@ -142,3 +142,5 @@ local.properties
 .idea/modules/BluJam2018_test.iml
 .gradle/
 .idea/
+build/
+
