@@ -25,7 +25,7 @@ public class App extends PApplet {
         layers.add(new CloudLayer(2 * height / 5, 3 * height / 5));
         layers.add(new EmptyLayer(3 * height / 5, 4 * height / 5));
         //layers.add(new EarthLayer(4*height/5, height));
-        asteroid = new Asteroid((float) (Math.random() * width), 0, width / 48);
+        asteroid = new Asteroid((float)((Math.random() * width*2/3) + width/6), 0, width / 48);
         earth = new Earth(4 * height / 5, height, this);
 
         left = false;
@@ -50,6 +50,7 @@ public class App extends PApplet {
         asteroid.reset();*/
 
         earth.update(this);
+        // User movement
         if (left || right) {
             asteroid.userMove(left);
         }
@@ -105,6 +106,10 @@ public class App extends PApplet {
 
     public ArrayList<Layer> getLayers() {
         return layers;
+    }
+
+    public void setAsteroid (Asteroid a) {
+        this.asteroid = a;
     }
 
     //Sets booleans for keys
