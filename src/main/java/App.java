@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PVector;
+import processing.core.PImage;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,44 @@ public class App extends PApplet{
 	private Asteroid asteroid;
 	private ArrayList<Layer> layers;
 	private Earth earth;
+	PImage space;
+
+    public void setup() {
+        ImageLoader.loadImageAsset("space.jpg", "space", this);
+        layers = new ArrayList<>();
+        layers.add(new SpaceLayer(0, height/5));
+        layers.add(new WindLayer(height/5, 2*height/5));
+        layers.add(new CloudLayer(2*height/5, 3*height/5));
+        layers.add(new EmptyLayer(3*height/5, 4*height/5));
+        //layers.add(new EarthLayer(4*height/5, height));
+        asteroid = new Asteroid((float)(Math.random()*width),0, width/24);
+        earth = new Earth(4*height/5, height, this);
+
+        space = loadImage("space.jpg");
+        space.resize(width, height/5);
+    }
+
+    public void draw(){
+        clear();
+
+        asteroid.setPosition(new PVector(width/2, 4*height/5));
+        for(Layer layer: layers) layer.draw(this);
+
+        earth.draw(this);
+        asteroid.draw(this);
+
+        earth.explode(asteroid);
+        asteroid.reset();
+    }
+
+    public PImage getImage(String i) {
+        switch (i) {
+            case "space":
+                return space;
+            default : return null;
+        }
+
+    }
 
     public void mousePressed() {
         InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.PRESS));
@@ -32,30 +71,7 @@ public class App extends PApplet{
         fullScreen();
     }
 
-    public void setup() {
-        layers = new ArrayList<>();
-        layers.add(new SpaceLayer(0, height/5));
-        layers.add(new WindLayer(height/5, 2*height/5));
-        layers.add(new CloudLayer(2*height/5, 3*height/5));
-        layers.add(new EmptyLayer(3*height/5, 4*height/5));
-        //layers.add(new EarthLayer(4*height/5, height));
-        asteroid = new Asteroid((float)(Math.random()*width),0, width/24);
-        earth = new Earth(4*height/5, height, this);
 
-    }
-
-    public void draw(){
-        clear();
-
-        asteroid.setPosition(new PVector(width/2, 4*height/5));
-        for(Layer layer: layers) layer.draw(this);
-
-        earth.draw(this);
-        asteroid.draw(this);
-
-        earth.explode(asteroid);
-        asteroid.reset();
-    }
 
     public static void main(String[] args) {
         PApplet.main(App.class);

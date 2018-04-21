@@ -7,12 +7,12 @@ import java.util.Map;
 /**
  * Created by Alex Mitchell on 21/04/2018.
  */
-public class ImageHandler {
+public class ImageLoader {
     private static Map<String, PImage> imageAssets = new HashMap<>();
     private static PImage nullImage = new PImage(10,10);
 
     /**
-     * Load image assets into the ImageHandler.
+     * Load image assets into the ImageLoader.
      * @param filePath The path to the file
      * @param imageName The name to reference the asset as
      * @param renderer The renderer to load the assets through

@@ -20,8 +20,7 @@ public class SpaceLayer extends Layer {
 
     @Override
     public void draw(PApplet pApplet) {
-        pApplet.fill(pApplet.color(0));
-        pApplet.rect(0, getMinY(), pApplet.width, getMaxY()-getMinY());
+        pApplet.image(ImageLoader.getImageAsset("space"), 0, 0);
     }
 
     @Override
