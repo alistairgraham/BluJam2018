@@ -8,9 +8,7 @@ public class App extends PApplet{
 	private Layer[] layers;
 	
     public void mousePressed() {
-        InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.PRESS));
-    }
-
+        I\
     public void mouseReleased() {
         InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.RELEASE));
     }

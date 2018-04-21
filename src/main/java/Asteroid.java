@@ -15,6 +15,14 @@ public class Asteroid implements Drawable {
 
 	}
 
+	public float getX() {
+		return position.x;
+	}
+
+	public float getY() {
+		return position.y;
+	}
+
 	public void update(App app){
 
 	}
