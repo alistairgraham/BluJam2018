@@ -34,6 +34,7 @@ public class Asteroid implements Drawable {
 
 	public void update(App app){
 		position.add(velocity);
+		position.x = Math.min(app.width - 1, Math.max(0, position.x));
 		velocity.add(0,1); // Temporary value for velocity
 	}
 

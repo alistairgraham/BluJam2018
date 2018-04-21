@@ -45,16 +45,25 @@ public class App extends PApplet{
     }
 
     public void draw(){
-        clear();
+        /*clear();
 
-        asteroid.setPosition(new PVector(width/2, 4*height/5));
+        //asteroid.setPosition(new PVector(width/2, 4*height/5));
         for(Layer layer: layers) layer.draw(this);
 
         earth.draw(this);
         asteroid.draw(this);
 
         earth.explode(asteroid);
-        asteroid.reset();
+        asteroid.reset();*/
+
+        earth.update(this);
+        asteroid.update(this);
+
+        for(Layer layer: layers) layer.modify(asteroid);
+        for(Layer layer: layers) layer.draw(this);
+        earth.draw(this);
+        asteroid.draw(this);
+
     }
 
     public static void main(String[] args) {

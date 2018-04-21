@@ -9,6 +9,7 @@ public class Earth {
 
     public Earth(int minY, int maxY, App app) {
         yOffset = minY;
+
         pixels = new EarthPixel[maxY-minY][app.width];
         for (int y = 0; y < pixels.length; y++) {
             for (int x = 0; x < pixels[0].length; x++) {
@@ -19,9 +20,8 @@ public class Earth {
 
     public void update(App app) {
         Asteroid asrd = app.getAsteroid();
-        if (asteroidIsColliding(asrd)) {
-            explode(asrd);
-        }
+        if (asteroidIsColliding(asrd)) explode(asrd);
+
     }
 
     public void draw(PApplet app) {
@@ -32,17 +32,20 @@ public class Earth {
         }
     }
 
+    private int maxY() { return (int) yOffset + pixels.length; }
+
     private boolean asteroidIsColliding(Asteroid asteroid) {
-        return !getPixel(asteroid.getX(), asteroid.getY()+yOffset).destroyed;
+        if (!(asteroid.getY() < maxY() && asteroid.getY() > yOffset)) return false;
+        return !getPixel(asteroid.getX(), asteroid.getY()-yOffset).destroyed;
     }
 
     public void explode(Asteroid asteroid) {
         PVector velocity = asteroid.getVelocity();
-        //getPixel(asteroid.getX(), asteroid.getY()).destroyed = true;
-        int min = (int) asteroid.getX() -40;
-        int max = (int) asteroid.getX()+40;
 
-        for (int y = (int)(asteroid.getY()-yOffset); y < 40 && y>=0 ; y++) {
+        int min = Math.max(0, (int) asteroid.getX() -40);
+        int max = Math.min(pixels[0].length, (int) asteroid.getX()+40);
+
+        for (int y = (int)(asteroid.getY()-yOffset); y < pixels.length && y >=0 && y < asteroid.getY() - yOffset + 60; y++) {
             for (float i = min; i < max && i < pixels[0].length; i++) {
                 getPixel(i, y).destroyed = true;
             }
