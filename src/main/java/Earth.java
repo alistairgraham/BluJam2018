@@ -26,11 +26,13 @@ public class Earth {
     }
 
     public void draw(PApplet app) {
+        app.loadPixels();
         for (int y = 0; y < pixels.length; y++) {
             for (int x = 0; x < pixels[0].length; x++) {
-                pixels[y][x].draw(x, y + yOffset, app);
+                pixels[y][x].draw(x, y + (int)yOffset, app);
             }
         }
+        app.updatePixels();
     }
 
     private int maxY() { return (int) yOffset + pixels.length; }
@@ -68,12 +70,9 @@ public class Earth {
         private static PImage green = ImageLoader.getImageAsset("green");
         private EarthPixel() {}
 
-        private void draw(float x, float y, PApplet app) {
-            app.noStroke();
-            if(!destroyed) app.fill(app.color(100, 69, 58));
-            else app.fill(50, 35, 29);
-
-            //app.rect(x, y, 1 ,1);
+        private void draw(int x, int y, PApplet app) {
+            if(!destroyed) app.pixels[y*app.width + x] = app.color(100, 69, 58);
+            else app.pixels[y*app.width + x] = app.color(50, 35, 29);
         }
     }
 }
