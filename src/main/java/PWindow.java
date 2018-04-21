@@ -1,4 +1,3 @@
-import processing.core.PApplet;
 import util.Debug;
 
 import java.io.File;
