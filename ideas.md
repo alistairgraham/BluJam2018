@@ -13,7 +13,7 @@ Real quick ideas for how to update the objects within layers
 			- means we can have layers that affect the asteroid that may not even be visible
 			- such as a multiplier for gravity (gravity layer just multiplies the vector of the asteroid)
 
-### LayerObject
+### GameObject
 - has an update(CloudLayer layer), update(SpaceLayer layer)
 	- such that the object can change behaviour based on the layer that it is in
 	- will have redundancy but can allow for further flexibility
@@ -62,7 +62,7 @@ public class WindLayer implements Layer{
 ### Layer Object
 	
 ```
-public interface LayerObject{
+public interface GameObject{
     update(WindLayer layer); // any object implementing this will define how the object behaves in a wind layer
     update(CoolLayerXD layer);
     update(Layyyeerrr layer);
@@ -73,7 +73,7 @@ public interface LayerObject{
 ### Concrete Layer Object
 	
 ```
-public class Asteroid implements LayerObject{
+public class Asteroid implements GameObject{
     int speedy;
     update(WindLayer layer){
         //update the speedy

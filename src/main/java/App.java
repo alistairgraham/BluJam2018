@@ -19,6 +19,7 @@ public class App extends PApplet {
     public void setup() {
         frameRate(120);
         ImageLoader.loadImageAsset("green.jpg", "green", this, 1, 1);
+        ImageLoader.loadImageAsset("cloud1.png", "cloud", this, 100, 50);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height / 5));
         layers.add(new WindLayer(height / 5, 2 * height / 5));
@@ -59,8 +60,13 @@ public class App extends PApplet {
 
         asteroid.update(this);
 
-        for (Layer layer : layers) layer.modify(asteroid);
-        for (Layer layer : layers) layer.draw(this);
+
+        for(Layer layer: layers){
+            if(layer.getClass() != CloudLayer.class) layer.modify(asteroid);
+            else ((CloudLayer)layer).modify(this);
+        }
+        for(Layer layer: layers) layer.draw(this);
+
         earth.draw(this);
         asteroid.draw(this);
 
