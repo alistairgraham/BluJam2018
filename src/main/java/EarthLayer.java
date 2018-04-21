@@ -11,7 +11,9 @@ public class EarthLayer extends Layer {
     }
     @Override
     public void draw() {
-
+        for (CircleBoi c : circleBois) {
+            c.draw();
+        }
     }
 
     @Override
@@ -24,7 +26,15 @@ public class EarthLayer extends Layer {
             }
         }
         if (inABoi) {
-            //TODO MUST EXPLODE
+            a.update(0);
+        }
+        else {
+            // TODO MUST EXPLODE
+            explode(a);
+            a.reset();
+
         }
     }
+
+
 }

@@ -11,26 +11,28 @@ public class Asteroid implements Drawable {
 
 	public Asteroid() {
 		float dy = 1;
-		reset(dy);
+		reset();
 	}
 	
 	public void update(float dx) {
+	    x += dx;
+	    y += dy;
+
 		if (x < 0) {
-			dx = 0;
+			this.dx = 0;
 			x = 0;
 		}
 		else if (x > screenWidth) {
-			dx = 0;
-			x = screenWidth;
-		}
-		
+            this.dx = 0;
+            x = screenWidth;
+        }
 	}
 	
 	public void draw() {
 		
 	}
 	
-	public void reset(float dy) {
+	public void reset() {
 		this.x = (float) Math.random();  //need to change this for width
 		this.y = 0;
 		this.dy = dy;
