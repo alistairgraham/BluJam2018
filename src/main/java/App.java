@@ -31,10 +31,11 @@ public class App extends PApplet{
         ellipse(width/2, height/2, height, height);
         layers = new Layer[5];
         layers[0] = new SpaceLayer(0, height/5);
-        layers[0] = new WindLayer(height/5, 2*height/5);
-        layers[0] = new CloudLayer(2*height/5, 3*height/5);
-        layers[0] = new EmptyLayer(3*height/5, 4*height/5);
-        layers[0] = new EarthLayer(4*height/5, height);
+        layers[1] = new WindLayer(height/5, 2*height/5);
+        layers[2] = new CloudLayer(2*height/5, 3*height/5);
+        layers[3] = new EmptyLayer(3*height/5, 4*height/5);
+        layers[4] = new EarthLayer(4*height/5, height);
+        asteroid = new Asteroid();
 
     }
 
@@ -44,5 +45,9 @@ public class App extends PApplet{
 
     public Asteroid getAsteroid() {
         return asteroid;
+    }
+
+    public Layer[] getLayers() {
+        return layers;
     }
 }
