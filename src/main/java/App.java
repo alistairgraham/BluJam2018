@@ -14,7 +14,7 @@ public class App extends PApplet{
 	PImage space;
 
     public void setup() {
-        ImageLoader.loadImageAsset("space.jpg", "space", this);
+        ImageLoader.loadImageAsset("space.jpg", "space", this, width, height/5);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height/5));
         layers.add(new WindLayer(height/5, 2*height/5));

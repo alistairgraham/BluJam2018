@@ -17,8 +17,9 @@ public class ImageLoader {
      * @param imageName The name to reference the asset as
      * @param renderer The renderer to load the assets through
      */
-    public static void loadImageAsset(String filePath, String imageName, PApplet renderer){
+    public static void loadImageAsset(String filePath, String imageName, PApplet renderer, float width, float height){
         PImage imageAsset = renderer.loadImage(filePath);
+        imageAsset.resize((int)width,(int)height);
         imageAssets.put(imageName, imageAsset);
     }
 
