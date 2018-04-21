@@ -11,7 +11,6 @@ public class App extends PApplet{
         InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.PRESS));
     }
 
-
     public void mouseReleased() {
         InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.RELEASE));
     }
@@ -30,12 +29,11 @@ public class App extends PApplet{
 
     public void setup() {
         ellipse(width/2, height/2, height, height);
-        layers = new Layer[5];
+        layers = new Layer[4];
         layers[0] = new SpaceLayer(0, height/5);
         layers[1] = new WindLayer(height/5, 2*height/5);
         layers[2] = new CloudLayer(2*height/5, 3*height/5);
         layers[3] = new EmptyLayer(3*height/5, 4*height/5);
-        layers[4] = new EarthLayer(4*height/5, height);
         asteroid = new Asteroid();
 
     }
