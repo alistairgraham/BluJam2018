@@ -12,10 +12,11 @@ public class App extends PApplet{
 	private ArrayList<Layer> layers;
 	private Earth earth;
 	PImage space;
+    public static PImage green;
 
     public void setup() {
         frameRate(120);
-        //ImageLoader.loadImageAsset("space.jpg", "space", this, width, height/5);
+        ImageLoader.loadImageAsset("green.jpg", "green", this, 1, 1);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height/5));
         layers.add(new WindLayer(height/5, 2*height/5));
@@ -25,8 +26,10 @@ public class App extends PApplet{
         asteroid = new Asteroid((float)(Math.random()*width),0, width/48);
         earth = new Earth(4*height/5, height, this);
 
-        space = loadImage("space.jpg");
-        space.resize(width, height/5);
+//        space = loadImage("space.jpg");
+//        space.resize(width, height/5);
+//        green = loadImage("green.jpg");
+
     }
 
     public void draw(){
@@ -46,7 +49,7 @@ public class App extends PApplet{
 
         for(Layer layer: layers) layer.modify(asteroid);
         for(Layer layer: layers) layer.draw(this);
-        //earth.draw(this);
+        earth.draw(this);
         asteroid.draw(this);
 
     }

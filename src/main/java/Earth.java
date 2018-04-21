@@ -1,5 +1,6 @@
 
 import processing.core.PApplet;
+import processing.core.PImage;
 import processing.core.PVector;
 
 
@@ -64,15 +65,21 @@ public class Earth {
      * */
     private static class EarthPixel {
         private boolean destroyed = false;
-
+        private static PImage green = ImageLoader.getImageAsset("green");
         private EarthPixel() {}
 
         private void draw(float x, float y, PApplet app) {
             app.noStroke();
-            if(!destroyed) app.fill(app.color(51, 122, 59));
-            else app.fill(117, 117, 117);
+            if(!destroyed) {
+                //app.fill(app.color(51, 122, 59));
+                app.image(green, x, y);
+            }
+            else {
+                //app.fill(117, 117, 117);
+                app.image(null, x, y);
+            }
 
-            app.rect(x, y, 1 ,1);
+            //app.rect(x, y, 1 ,1);
         }
     }
 }
