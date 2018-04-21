@@ -6,8 +6,9 @@ public class Asteroid implements Drawable {
 	private PVector position;
 	private PVector velocity;
 
-	public Asteroid() {
-
+	public Asteroid(float xPos, float yPos) {
+		position = new PVector(xPos, yPos);
+		velocity = new PVector(0, 0); // Default velocity vector
 	}
 
 	@Override
