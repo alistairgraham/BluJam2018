@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 /**
  * Created by sam on 20/04/18.
@@ -17,14 +17,14 @@ public class EarthLayer extends Layer {
     @Override
     public void update(Asteroid a) {
         boolean inABoi = false;
-        for(int i=0; i<circleBois.size(); i++) {
+        for(CircleBoi c : circleBois) {
             if (c.contains(a.getX(), a.getY())) {
                 inABoi = true;
                 break;
             }
         }
         if (inABoi) {
-            a.update(0);
+            //TODO MUST EXPLODE
         }
     }
 }

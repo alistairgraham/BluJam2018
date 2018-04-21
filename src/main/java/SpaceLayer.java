@@ -5,7 +5,7 @@
  */
 public class SpaceLayer extends Layer {
 
-    int dy;
+    float dy;
 
     public SpaceLayer(){
         this.dy = 2;
