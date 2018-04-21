@@ -14,14 +14,15 @@ public class App extends PApplet{
 	PImage space;
 
     public void setup() {
-        ImageLoader.loadImageAsset("space.jpg", "space", this, width, height/5);
+        frameRate(120);
+        //ImageLoader.loadImageAsset("space.jpg", "space", this, width, height/5);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height/5));
         layers.add(new WindLayer(height/5, 2*height/5));
         layers.add(new CloudLayer(2*height/5, 3*height/5));
         layers.add(new EmptyLayer(3*height/5, 4*height/5));
         //layers.add(new EarthLayer(4*height/5, height));
-        asteroid = new Asteroid((float)(Math.random()*width),0, width/24);
+        asteroid = new Asteroid((float)(Math.random()*width),0, width/48);
         earth = new Earth(4*height/5, height, this);
 
         space = loadImage("space.jpg");
@@ -45,7 +46,7 @@ public class App extends PApplet{
 
         for(Layer layer: layers) layer.modify(asteroid);
         for(Layer layer: layers) layer.draw(this);
-        earth.draw(this);
+        //earth.draw(this);
         asteroid.draw(this);
 
     }

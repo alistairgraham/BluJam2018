@@ -28,9 +28,7 @@ public class WindLayer extends Layer {
         super(minY, maxY);
         double rand = Math.random();
         float windXVel = rand<0.5 ? (float) Math.random() : (float) -Math.random();
-        rand = Math.random()/2.0;
-        float windYVel = rand<0.25 ? (float) Math.random()/2 : (float) -Math.random()/2;
-        windVelocity = new PVector(windXVel, windYVel);
+        windVelocity = new PVector(windXVel, 0);
     }
 
 

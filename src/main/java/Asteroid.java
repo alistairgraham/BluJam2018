@@ -13,15 +13,25 @@ public class Asteroid implements Drawable {
 	public Asteroid(float xPos, float yPos, float diameter) {
 		initialPosition = new PVector(xPos, yPos);
 		position = new PVector(xPos, yPos);
-		initialVelocity = new PVector(0,0);
+		initialVelocity = new PVector(0,1/2);
 		velocity = new PVector(0, 2); // Default velocity vector
 		this.diam = diameter;
 	}
 
 	@Override
 	public void draw(PApplet pApplet) {
-		pApplet.fill(pApplet.color(79, 47, 9));
+        PVector rV = new PVector(-velocity.x, -velocity.y).mult(10);
+        PVector pV = new PVector(velocity.y, -velocity.x).normalize().mult(diam/2);
+        pApplet.fill(pApplet.color(249, 181, 59));
+        PVector p1 = rV.add(new PVector(rV.x, rV.y).normalize().mult(20)).add(position);
+        pApplet.triangle(p1.x, p1.y,
+                position.x+pV.x, position.y+pV.y,
+                position.x-pV.x, position.y-pV.y);
+		pApplet.fill(pApplet.color(112, 21, 13));
 		pApplet.ellipse(position.x, position.y, diam, diam);
+
+
+		//pApplet
 	}
 
 	public float getX() {
