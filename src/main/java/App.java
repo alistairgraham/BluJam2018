@@ -36,7 +36,12 @@ public class App extends PApplet{
     public void setup() {
         ellipse(width/2, height/2, height, height);
         layers = new Layer[5];
-        
+        layers[0] = new SpaceLayer(0, height/5);
+        layers[0] = new WindLayer(height/5, 2*height/5);
+        layers[0] = new CloudLayer(2*height/5, 3*height/5);
+        layers[0] = new EmptyLayer(3*height/5, 4*height/5);
+        layers[0] = new EarthLayer(4*height/5, height);
+
     }
 
     public static void main(String[] args) {
