@@ -6,6 +6,7 @@ import processing.core.PApplet;
 public class App extends PApplet{
 	private Asteroid asteroid;
 	private Layer[] layers;
+	private Earth earth;
 
     public void mousePressed() {
         InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.PRESS));
@@ -35,6 +36,8 @@ public class App extends PApplet{
         layers[2] = new CloudLayer(2*height/5, 3*height/5);
         layers[3] = new EmptyLayer(3*height/5, 4*height/5);
         asteroid = new Asteroid();
+        earth = new Earth(this);
+
 
     }
 
