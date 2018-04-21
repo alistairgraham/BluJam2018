@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PVector;
+import processing.core.PImage;
 
 import java.util.ArrayList;
 
@@ -10,29 +11,10 @@ public class App extends PApplet{
 	private Asteroid asteroid;
 	private ArrayList<Layer> layers;
 	private Earth earth;
-
-    public void mousePressed() {
-        InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.PRESS));
-    }
-
-
-    public void mouseReleased() {
-        InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.RELEASE));
-    }
-
-    public void keyPressed() {
-        InputHandler.keyDown.put(keyCode, true);
-    }
-
-    public void keyReleased() {
-        InputHandler.keyDown.put(keyCode, false);
-    }
-
-    public void settings() {
-        fullScreen();
-    }
+	PImage space;
 
     public void setup() {
+        ImageLoader.loadImageAsset("space.jpg", "space", this);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height/5));
         layers.add(new WindLayer(height/5, 2*height/5));
@@ -42,6 +24,8 @@ public class App extends PApplet{
         asteroid = new Asteroid((float)(Math.random()*width),0, width/24);
         earth = new Earth(4*height/5, height, this);
 
+        space = loadImage("space.jpg");
+        space.resize(width, height/5);
     }
 
     public void draw(){
@@ -65,6 +49,38 @@ public class App extends PApplet{
         asteroid.draw(this);
 
     }
+
+    public PImage getImage(String i) {
+        switch (i) {
+            case "space":
+                return space;
+            default : return null;
+        }
+
+    }
+
+    public void mousePressed() {
+        InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.PRESS));
+    }
+
+
+    public void mouseReleased() {
+        InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.RELEASE));
+    }
+
+    public void keyPressed() {
+        InputHandler.keyDown.put(keyCode, true);
+    }
+
+    public void keyReleased() {
+        InputHandler.keyDown.put(keyCode, false);
+    }
+
+    public void settings() {
+        fullScreen();
+    }
+
+
 
     public static void main(String[] args) {
         PApplet.main(App.class);
