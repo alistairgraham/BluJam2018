@@ -8,6 +8,11 @@ public class Earth {
 
     public Earth(App app) {
         pixels = new EarthPixel[app.height][app.width];
+        for (int y = 0; y < pixels.length; y++) {
+            for (int x = 0; x < pixels[0].length; x++) {
+                pixels[y][x] = new EarthPixel();
+            }
+        }
     }
 
     public void update(App app) {
