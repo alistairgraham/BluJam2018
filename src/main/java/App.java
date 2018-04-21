@@ -36,7 +36,7 @@ public class App extends PApplet{
         layers[2] = new CloudLayer(2*height/5, 3*height/5);
         layers[3] = new EmptyLayer(3*height/5, 4*height/5);
         layers[4] = new EarthLayer(4*height/5, height);
-        asteroid = new Asteroid();
+        asteroid = new Asteroid((float)(Math.random()*width),0);
         earth = new Earth(this);
 
     }
