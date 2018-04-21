@@ -14,7 +14,7 @@ public class Asteroid implements Drawable {
 		reset(dy);
 	}
 	
-	public void update(float dx, float dy) {
+	public void update(float dx) {
 		if (x < 0) {
 			dx = 0;
 			x = 0;
