@@ -1,5 +1,8 @@
 import processing.core.PApplet;
 import processing.core.PVector;
+import processing.core.*;
+
+import java.util.concurrent.TimeUnit;
 
 public class Asteroid implements Drawable {
 
@@ -26,7 +29,7 @@ public class Asteroid implements Drawable {
     private float diam;
     private float maxVelX;
 
-    public static final PVector accelX = new PVector(-0.2f, 0);
+    public static final PVector accelX = new PVector(-0.05f, 0);
     public static final PVector gravity = new PVector(0f, 0.01f);
 
     public Asteroid(float xPos, float yPos, float diameter) {
@@ -39,6 +42,11 @@ public class Asteroid implements Drawable {
 //		velocity = initialVelocity.copy();
         this.diam = diameter;
         maxVelX = 4;
+        // This pauses - letting the player release their arrow button so they don't move the next asteroid
+//        try {
+//            TimeUnit.MILLISECONDS.sleep(1000);
+//        } catch (InterruptedException e) {
+//        }
     }
 
     @Override
@@ -144,21 +152,24 @@ public class Asteroid implements Drawable {
         }
     }
 
-    public void userMove(boolean left){
+    public void userMove(boolean left, App app){
+        if (this.position.y > app.height-(app.height/5)) { return; }
 	    if (left) {
-            if (velocity.x>-maxVelX) {
+            //if (velocity.x>-maxVelX) {
                 velocity.add(accelX);
                 if (velocity.x<-maxVelX) { velocity.x = -maxVelX; }
-            }
+           // }
             position.add(accelX);
         }
         else {
-            if (velocity.x<maxVelX) {
+           // if (velocity.x<maxVelX) {
                 velocity.add(accelX.mult(-1));
                 if (velocity.x>maxVelX) { velocity.x = maxVelX; }
-            }
+           // }
             position.add(accelX.mult(-1));
         }
+        // Adjusts to max speeds if necessarys
+        //affect(new PVector(0,0));
     }
 
     public PVector getPosition() {

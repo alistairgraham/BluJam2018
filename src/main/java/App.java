@@ -15,6 +15,7 @@ public class App extends PApplet {
     public static PImage green;
     private boolean left;
     private boolean right;
+    public float groundHeight = 4*height/5;
 
     public void setup() {
         frameRate(120);
@@ -22,10 +23,10 @@ public class App extends PApplet {
         ImageLoader.loadImageAsset("cloud1.png", "cloud", this, 100, 50);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height / 5));
-        //layers.add(new WindLayer(height / 5, 2 * height / 5));
-        //layers.add(new CloudLayer(2 * height / 5, 3 * height / 5));
+        layers.add(new WindLayer(height / 5, 2 * height / 5));
+        layers.add(new CloudLayer(2 * height / 5, 3 * height / 5));
         layers.add(new EmptyLayer(3 * height / 5, 4 * height / 5));
-        //layers.add(new EarthLayer(4*height/5, height));
+        layers.add(new EarthLayer(4*height/5, height));
         asteroid = new Asteroid((float)((Math.random() * width*2/3) + width/6), 0, width / 48);
         earth = new Earth(4 * height / 5, height, this);
 
@@ -54,7 +55,7 @@ public class App extends PApplet {
         earth.update(this);
         // User movement
         if (left || right) {
-            asteroid.userMove(left);
+            asteroid.userMove(left, this);
         }
 
         asteroid.update(this);
