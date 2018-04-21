@@ -1,18 +1,13 @@
 import processing.core.PApplet;
+import processing.core.PVector;
 
 public class Asteroid implements Drawable {
-	 
-	private float x;
-	private float y;
-	private float dx;
-	private float dy;
-	final float size = 20;
-	public final static float screenWidth = 100;
-	// PImage img;
+
+	private PVector position;
+	private PVector velocity;
 
 	public Asteroid() {
-		float dy = 1;
-		reset();
+
 	}
 
 	@Override
@@ -20,62 +15,23 @@ public class Asteroid implements Drawable {
 
 	}
 
-	public void update(float dx) {
-	    x += dx;
-	    y += dy;
+	public void update(App app){
 
-		if (x < 0) {
-			this.dx = 0;
-			x = 0;
-		}
-		else if (x > screenWidth) {
-            this.dx = 0;
-            x = screenWidth;
-        }
-	}
-	
-	public void draw() {
-		//Draws a black circle
-	}
-	
-	public void reset() {
-		this.x = (float) Math.random();  //need to change this for width
-		this.y = 0;
-		this.dy = dy;
-	}
-	
-	//----------------------------------Getter and setters------------------------//
-	public float getX() {
-		return x;
 	}
 
-	public void setX(float x) {
-		this.x = x;
+	public PVector getPosition() {
+		return position;
 	}
 
-	public float getY() {
-		return y;
+	public void setPosition(PVector position) {
+		this.position = position;
 	}
 
-	public void setY(float y) {
-		this.y = y;
+	public PVector getVelocity() {
+		return velocity;
 	}
 
-	public float getDY() {
-		return dy;
+	public void setVelocity(PVector velocity) {
+		this.velocity = velocity;
 	}
-
-	public void setDY(float dy) {
-		this.dy = dy;
-	}
-	
-	public float getDX() {
-		return dx;
-	}
-
-	public void setDX(float dx) {
-		this.dx = dx;
-	}
-	//-------------------------------------------------------------------------------//
-
 }
