@@ -6,6 +6,8 @@
  * Empty layer just above earth layer - for now.
  */
 public class EmptyLayer extends Layer {
+
+
     @Override
     public void draw() {
 

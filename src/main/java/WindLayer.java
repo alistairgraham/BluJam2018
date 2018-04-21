@@ -7,8 +7,9 @@ public class WindLayer extends Layer {
 	private float dx;
 	
 	WindLayer() {
-		dx = 2; // Right wind
+        dx = 2; // Right wind
 	}
+
     @Override
     public void draw() {
 
@@ -16,6 +17,6 @@ public class WindLayer extends Layer {
 
     @Override
     public void update(Asteroid a) {
-    	a.update(0, dx);
+	    a.update(dx, 0);
     }
 }

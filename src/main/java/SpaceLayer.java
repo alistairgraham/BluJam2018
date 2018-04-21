@@ -5,6 +5,12 @@
  */
 public class SpaceLayer extends Layer {
 
+    int dy;
+
+    public SpaceLayer(){
+        this.dy = 2;
+    }
+
     @Override
     public void draw() {
 
@@ -12,6 +18,6 @@ public class SpaceLayer extends Layer {
 
     @Override
     public void update(Asteroid a) {
-
+        a.update(0, dy);
     }
 }
