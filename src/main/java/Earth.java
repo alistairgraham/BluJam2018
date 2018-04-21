@@ -46,7 +46,7 @@ public class Earth {
                 getPixel(i, y).destroyed = true;
             }
         }
-
+        asteroid.reset();
     }
 
     private EarthPixel getPixel(float x, float y) {
