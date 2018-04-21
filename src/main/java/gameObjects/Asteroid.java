@@ -18,8 +18,13 @@ public class Asteroid implements GameObject {
 	}
 	
 	public void update() {
-		if (x < 0 || x > screenWidth) {
-			x = Math.min(screenWidth, Math.max(x, 0));
+		if (x < 0) {
+			dx = 0;
+			x = 0;
+		}
+		else if (x > screenWidth) {
+			dx = 0;
+			x = screenWidth;
 		}
 	}
 	
