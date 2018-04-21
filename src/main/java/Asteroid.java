@@ -20,7 +20,7 @@ public class Asteroid implements Drawable {
 
 	@Override
 	public void draw(PApplet pApplet) {
-		pApplet.fill(79, 47, 9);
+		pApplet.fill(pApplet.color(79, 47, 9));
 		pApplet.ellipse(position.x, position.y, diam, diam);
 	}
 

@@ -39,7 +39,7 @@ public class App extends PApplet{
         layers.add(new CloudLayer(2*height/5, 3*height/5));
         layers.add(new EmptyLayer(3*height/5, 4*height/5));
         layers.add(new EarthLayer(4*height/5, height));
-        asteroid = new Asteroid((float)(Math.random()*width),0);
+        asteroid = new Asteroid((float)(Math.random()*width),10, 25);
         earth = new Earth(this);
 
     }
@@ -48,11 +48,12 @@ public class App extends PApplet{
         clear();
 
         asteroid.setPosition(new PVector(width/2, 500));
-        asteroid.draw(this);
+
         for(Layer layer: layers) layer.draw(this);
 
         earth.draw(this);
         earth.explode(asteroid);
+        asteroid.draw(this);
     }
 
     public static void main(String[] args) {
