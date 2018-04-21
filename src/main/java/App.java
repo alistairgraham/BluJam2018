@@ -6,6 +6,8 @@ import processing.core.PApplet;
 public class App extends PApplet{
 	private static boolean gameRunning;
 	private static boolean targetBlown;
+	private Asteroid asteroid;
+	private Layer[] layers;
 	
     public String getGreeting() {
         return "Don't touch ma spaghet.";
@@ -33,6 +35,8 @@ public class App extends PApplet{
 
     public void setup() {
         ellipse(width/2, height/2, height, height);
+        layers = new Layer[5];
+        
     }
 
     public static void main(String[] args) {
@@ -45,5 +49,9 @@ public class App extends PApplet{
         		
         	}
         }
+    }
+
+    public Asteroid getAsteroid() {
+        return asteroid;
     }
 }

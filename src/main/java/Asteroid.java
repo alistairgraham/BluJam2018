@@ -28,7 +28,7 @@ public class Asteroid implements Drawable {
 	}
 	
 	public void draw() {
-		
+		//Draws a black circle
 	}
 	
 	public void reset() {
