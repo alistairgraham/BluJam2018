@@ -42,8 +42,7 @@ public class Earth {
         return !getPixel(asteroid.getX(), asteroid.getY()-yOffset).destroyed;
     }
 
-    public void explode(Asteroid asteroid) {
-        PVector velocity = asteroid.getVelocity();
+    private void explode(Asteroid asteroid) {
 
         int min = Math.max(0, (int) asteroid.getX() -40);
         int max = Math.min(pixels[0].length, (int) asteroid.getX()+40);
@@ -52,6 +51,7 @@ public class Earth {
             for (float i = min; i < max && i < pixels[0].length; i++) {
                 getPixel(i, y).destroyed = true;
             }
+
         }
         asteroid.reset();
     }
@@ -60,6 +60,28 @@ public class Earth {
         return pixels[(int)y][(int)x];
     }
 
+    private void destroyLayer(Asteroid asteroid){
+
+        PVector velocity = asteroid.getVelocity();
+
+        if(velocity.mag() < 1) asteroid.reset();
+
+
+        velocity.mult(1/2);
+
+        if(asteroidIsColliding(asteroid)){
+            float velX = velocity.x;
+            float ratio = velX/velocity.mag();
+
+            if(velX < 0){
+
+
+            }
+
+
+        }
+
+    }
 
     /**
      * Private inner class Earth Pixel to draw every pixel of the earth

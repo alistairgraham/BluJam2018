@@ -49,6 +49,7 @@ public class App extends PApplet {
         earth.explode(asteroid);
         asteroid.reset();*/
 
+        clear();
         earth.update(this);
         // User movement
         if (left || right) {
