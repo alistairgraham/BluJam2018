@@ -28,6 +28,6 @@ public class Scene {
     }
 
     public void update(){
-        asteroid.update();
+        //asteroid.update();
         for(Layer layer : layers) layer.update(asteroid);
 	}	}
