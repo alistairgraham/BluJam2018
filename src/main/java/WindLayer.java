@@ -7,6 +7,8 @@ import processing.core.PVector;
 public class WindLayer extends Layer {
     private PVector windVelocity;
 
+    public static final float X_VELOCITY_RANGE = 0.05f;
+
     /**
      * Create a wind layer
      * @param minY The min Y value of the layer
@@ -27,14 +29,14 @@ public class WindLayer extends Layer {
     public WindLayer(float minY, float maxY) {
         super(minY, maxY);
         double rand = Math.random();
-        float windXVel = rand<0.5 ? (float) Math.random() : (float) -Math.random();
+        float windXVel = X_VELOCITY_RANGE * (rand<0.5 ? (float) Math.random() : (float) -Math.random());
         windVelocity = new PVector(windXVel, 0);
     }
 
 
     @Override
     public void draw(PApplet pApplet) {
-        pApplet.fill(pApplet.color(211,211,211));
+        pApplet.fill(pApplet.color(176,225,242));
         pApplet.rect(0, getMinY(), pApplet.width, getMaxY());
     }
 

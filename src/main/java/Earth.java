@@ -70,14 +70,8 @@ public class Earth {
 
         private void draw(float x, float y, PApplet app) {
             app.noStroke();
-            if(!destroyed) {
-                //app.fill(app.color(51, 122, 59));
-                app.image(green, x, y);
-            }
-            else {
-                //app.fill(117, 117, 117);
-                app.image(null, x, y);
-            }
+            if(!destroyed) app.fill(app.color(100, 69, 58));
+            else app.fill(50, 35, 29);
 
             //app.rect(x, y, 1 ,1);
         }
