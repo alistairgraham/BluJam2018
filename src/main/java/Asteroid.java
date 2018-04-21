@@ -15,6 +15,9 @@ public class Asteroid implements Drawable {
 		position = new PVector(xPos, yPos);
 		initialVelocity = new PVector(0,1/2);
 		velocity = new PVector(0, 2); // Default velocity vector
+//		position = initialPosition.copy();
+//		initialVelocity = new PVector(0,2);
+//		velocity = initialVelocity.copy();
 		this.diam = diameter;
 	}
 
