@@ -16,14 +16,18 @@ public class WindLayer extends Layer {
      */
     public WindLayer(float minY, float maxY, float windXVelocity, float windYVelocity) {
         super(minY, maxY);
-        windVelocity = new PVector(windXVelocity, windYVelocity);
+        double rand = Math.random();
+        float windXVel = rand<0.5 ? (float) Math.random() : (float) -Math.random();
+        rand = Math.random()/2.0;
+        float windYVel = rand<0.25 ? (float) Math.random()/2 : (float) -Math.random()/2;
+        windVelocity = new PVector(windXVel, windYVel);
     }
 
 
     @Override
     public void draw(PApplet pApplet) {
-        pApplet.fill(pApplet.color(211, 211, 211));
-        pApplet.rect(0, getMinY(), pApplet.width, getMaxY()-getMinY());
+        pApplet.fill(pApplet.color(211,211,211));
+        pApplet.rect(0, getMinY(), pApplet.width, getMaxY());
     }
 
     @Override

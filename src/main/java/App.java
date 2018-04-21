@@ -33,7 +33,7 @@ public class App extends PApplet{
     public void setup() {
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height/5));
-       // layers.add(new WindLayer(height/5, 2*height/5));
+        layers.add(new WindLayer(height/5, 2*height/5));
         layers.add(new CloudLayer(2*height/5, 3*height/5));
         layers.add(new EmptyLayer(3*height/5, 4*height/5));
         layers.add(new EarthLayer(4*height/5, height));
