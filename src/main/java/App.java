@@ -44,6 +44,7 @@ public class App extends PApplet{
         earth.explode(asteroid);
         asteroid.reset();*/
 
+        clear();
         earth.update(this);
         asteroid.update(this);
 
