@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Earth {
     private EarthPixel[][] pixels;
-    private float yOffset = 600;
+    private float yOffset = 800;
 
     public Earth(App app) {
         pixels = new EarthPixel[app.height - (int)yOffset][app.width];
@@ -33,12 +33,19 @@ public class Earth {
     }
 
     private boolean asteroidIsColliding(Asteroid asteroid) {
-        return getPixel(asteroid.getX(), asteroid.getY()).destroyed;
+        return !getPixel(asteroid.getX(), asteroid.getY()+yOffset).destroyed;
     }
 
     private void explode(Asteroid asteroid) {
         PVector velocity = asteroid.getVelocity();
         getPixel(asteroid.getX(), asteroid.getY()).destroyed = true;
+        int min = (int) asteroid.getX() -20;
+        int max = (int) asteroid.getX()+20;
+
+        for(float i = min; i < max && i < pixels[0].length; i++){
+            getPixel(i, asteroid.getY()).destroyed = true;
+        }
+
     }
 
     private EarthPixel getPixel(float x, float y) {
@@ -57,8 +64,10 @@ public class Earth {
 
         private void draw(float x, float y, PApplet app) {
             app.noStroke();
-            app.fill(app.color(51, 122, 59));
-            app.rect(x, y, 1 ,1);
+            if(!destroyed){
+                app.fill(app.color(51, 122, 59));
+                app.rect(x, y, 1 ,1);
+            }
         }
     }
 }
