@@ -19,10 +19,10 @@ public abstract class Layer implements Drawable {
     }
 
     /**
-     * Updates the objects within the layer and acts on the asteroid if it exists
+     * Modify the asteroid by the rules of the given layer.
      * @param asteroid The asteroid in the game
      */
-    public abstract void update(Asteroid asteroid);
+    public abstract void modify(Asteroid asteroid);
 
     public boolean contains(Asteroid asteroid){
         float yPos = asteroid.getY();
