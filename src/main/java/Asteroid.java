@@ -33,8 +33,9 @@ public class Asteroid implements Drawable {
 	}
 
 	public void update(App app){
+	    velocity.add(0,1/10); // Temporary value for velocity
 		position.add(velocity);
-		velocity.add(0,1/10); // Temporary value for velocity
+		position.x = Math.min(app.width - 1, Math.max(0, position.x));
 	}
 
 	public PVector getPosition() {
