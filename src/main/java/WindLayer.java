@@ -36,7 +36,7 @@ public class WindLayer extends Layer {
 
     @Override
     public void draw(PApplet pApplet) {
-        pApplet.fill(pApplet.color(211,211,211));
+        pApplet.fill(pApplet.color(176,225,242));
         pApplet.rect(0, getMinY(), pApplet.width, getMaxY());
     }
 

@@ -46,7 +46,7 @@ public class App extends PApplet{
 
         for(Layer layer: layers) layer.modify(asteroid);
         for(Layer layer: layers) layer.draw(this);
-        //earth.draw(this);
+        earth.draw(this);
         asteroid.draw(this);
 
     }

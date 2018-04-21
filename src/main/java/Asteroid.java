@@ -27,14 +27,13 @@ public class Asteroid implements Drawable {
         PVector pV = new PVector(velocity.y, -velocity.x).normalize().mult(diam/2);
         pApplet.fill(pApplet.color(249, 181, 59));
         PVector p1 = rV.add(new PVector(rV.x, rV.y).normalize().mult(20)).add(position);
+
         pApplet.triangle(p1.x, p1.y,
                 position.x+pV.x, position.y+pV.y,
                 position.x-pV.x, position.y-pV.y);
 		pApplet.fill(pApplet.color(112, 21, 13));
 		pApplet.ellipse(position.x, position.y, diam, diam);
 
-
-		//pApplet
 	}
 
 	public float getX() {
@@ -46,9 +45,11 @@ public class Asteroid implements Drawable {
 	}
 
 	public void update(App app){
-	    velocity.add(0,1/10); // Temporary value for velocity
+	    velocity.add(0, 1/10); // Temporary value for velocity
 		position.add(velocity);
-		position.x = Math.min(app.width - 1, Math.max(0, position.x));
+		if(position.x > app.width-1) position.x = 1;
+		if(position.x<=0) position.x = app.width-1;
+		//position.x = Math.min(app.width - 1, Math.max(0, position.x));
 	}
 
 	public PVector getPosition() {
