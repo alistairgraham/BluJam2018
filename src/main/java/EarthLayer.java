@@ -4,7 +4,7 @@
  * Created by sam on 20/04/18.
  */
 public class EarthLayer extends Layer {
-    privateArrayList<CircleBoi> circleBois;
+    private ArrayList<CircleBoi> circleBois;
 
     EarthLayer() {
         circleBois = new ArrayList<CircleBoi>();
@@ -17,7 +17,7 @@ public class EarthLayer extends Layer {
     @Override
     public void update(Asteroid a) {
         boolean inABoi = false;
-        for(CircleBoi c : circleBois) {
+        for(int i=0; i<circleBois.size(); i++) {
             if (c.contains(a.getX(), a.getY())) {
                 inABoi = true;
                 break;
