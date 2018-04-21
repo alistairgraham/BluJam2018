@@ -1,8 +1,8 @@
-package gameObjects;
+
 
 import gameObjects.GameObject;
 
-public class Asteroid implements GameObject {
+public class Asteroid implements Drawable {
 	 
 	private float x;
 	private float y;
@@ -26,6 +26,7 @@ public class Asteroid implements GameObject {
 			dx = 0;
 			x = screenWidth;
 		}
+		
 	}
 	
 	public void draw() {

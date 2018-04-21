@@ -9,14 +9,16 @@ import java.util.HashSet;
  */
 
 public class Scene {
-    HashSet<Layer> layers;
+    Layer[] layers;
     Asteroid asteroid;
+    
 
     public Scene(){
         asteroid = new Asteroid();
-        layers = new HashSet<>();
-        Layer l = new SpaceLayer();
-        layers.add(l);
+        layers = new Layer[5];
+        layers = new SpaceLayer();
+        
+        //layers.add(l);
     }
 
     public Asteroid getAsteroid() {
