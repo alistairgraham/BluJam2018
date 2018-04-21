@@ -1,4 +1,6 @@
 import processing.core.PApplet;
+import processing.core.PVector;
+
 import java.util.ArrayList;
 
 /*
@@ -43,12 +45,16 @@ public class App extends PApplet{
     }
 
     public void draw(){
-        asteroid.draw(this);
-        for(Layer layer: layers) {
-            layer.draw(this);
-        }
+        clear();
 
-        //earth.draw(this);
+        asteroid.setPosition(new PVector(width/2, 500));
+        asteroid.draw(this);
+        for(Layer layer: layers) layer.draw(this);
+
+        earth.draw(this);
+        /*fill(color(0,255,0));
+        rect(200,400,300,500);*/
+        earth.explode(asteroid);
     }
 
     public static void main(String[] args) {

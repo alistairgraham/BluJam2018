@@ -13,7 +13,8 @@ public class Asteroid implements Drawable {
 
 	@Override
 	public void draw(PApplet pApplet) {
-
+		pApplet.fill(79, 47, 9);
+		pApplet.ellipse(position.x, position.y, 50, 50);
 	}
 
 	public float getX() {

@@ -2,11 +2,10 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-import java.util.Arrays;
 
 public class Earth {
     private EarthPixel[][] pixels;
-    private float yOffset = 800;
+    private float yOffset = 500;
 
     public Earth(App app) {
         pixels = new EarthPixel[app.height - (int)yOffset][app.width];
@@ -36,14 +35,16 @@ public class Earth {
         return !getPixel(asteroid.getX(), asteroid.getY()+yOffset).destroyed;
     }
 
-    private void explode(Asteroid asteroid) {
+    public void explode(Asteroid asteroid) {
         PVector velocity = asteroid.getVelocity();
-        getPixel(asteroid.getX(), asteroid.getY()).destroyed = true;
-        int min = (int) asteroid.getX() -20;
-        int max = (int) asteroid.getX()+20;
+        //getPixel(asteroid.getX(), asteroid.getY()).destroyed = true;
+        int min = (int) asteroid.getX() -40;
+        int max = (int) asteroid.getX()+40;
 
-        for(float i = min; i < max && i < pixels[0].length; i++){
-            getPixel(i, asteroid.getY()).destroyed = true;
+        for (int y = (int)(asteroid.getY()-yOffset); y < 100 && y>=0 ; y++) {
+            for (float i = min; i < max && i < pixels[0].length; i++) {
+                getPixel(i, y).destroyed = true;
+            }
         }
 
     }
