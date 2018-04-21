@@ -5,10 +5,11 @@ import processing.core.PVector;
 
 public class Earth {
     private EarthPixel[][] pixels;
-    private float yOffset = 500;
+    private float yOffset;
 
-    public Earth(App app) {
-        pixels = new EarthPixel[app.height - (int)yOffset][app.width];
+    public Earth(int minY, int maxY, App app) {
+        yOffset = minY;
+        pixels = new EarthPixel[maxY-minY][app.width];
         for (int y = 0; y < pixels.length; y++) {
             for (int x = 0; x < pixels[0].length; x++) {
                 pixels[y][x] = new EarthPixel();
@@ -41,7 +42,7 @@ public class Earth {
         int min = (int) asteroid.getX() -40;
         int max = (int) asteroid.getX()+40;
 
-        for (int y = (int)(asteroid.getY()-yOffset); y < 100 && y>=0 ; y++) {
+        for (int y = (int)(asteroid.getY()-yOffset); y < 40 && y>=0 ; y++) {
             for (float i = min; i < max && i < pixels[0].length; i++) {
                 getPixel(i, y).destroyed = true;
             }
@@ -65,10 +66,10 @@ public class Earth {
 
         private void draw(float x, float y, PApplet app) {
             app.noStroke();
-            if(!destroyed){
-                app.fill(app.color(51, 122, 59));
-                app.rect(x, y, 1 ,1);
-            }
+            if(!destroyed) app.fill(app.color(51, 122, 59));
+            else app.fill(117, 117, 117);
+
+            app.rect(x, y, 1 ,1);
         }
     }
 }

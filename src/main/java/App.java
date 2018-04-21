@@ -38,22 +38,23 @@ public class App extends PApplet{
         layers.add(new WindLayer(height/5, 2*height/5));
         layers.add(new CloudLayer(2*height/5, 3*height/5));
         layers.add(new EmptyLayer(3*height/5, 4*height/5));
-        layers.add(new EarthLayer(4*height/5, height));
-        asteroid = new Asteroid((float)(Math.random()*width),10, 25);
-        earth = new Earth(this);
+        //layers.add(new EarthLayer(4*height/5, height));
+        asteroid = new Asteroid((float)(Math.random()*width),0, width/24);
+        earth = new Earth(4*height/5, height, this);
 
     }
 
     public void draw(){
         clear();
 
-        asteroid.setPosition(new PVector(width/2, 500));
-
+        asteroid.setPosition(new PVector(width/2, 4*height/5));
         for(Layer layer: layers) layer.draw(this);
 
         earth.draw(this);
-        earth.explode(asteroid);
         asteroid.draw(this);
+
+        earth.explode(asteroid);
+        asteroid.reset();
     }
 
     public static void main(String[] args) {
