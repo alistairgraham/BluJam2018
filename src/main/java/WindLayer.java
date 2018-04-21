@@ -1,20 +1,22 @@
 import processing.core.PApplet;
+import processing.core.PVector;
 
 /**
  * Created by sam on 20/04/18.
  */
 public class WindLayer extends Layer {
-    private float dx;
+    private PVector windVelocity;
 
     /**
-     * Default constructor for the Layer
-     *
+     * Create a wind layer
      * @param minY The min Y value of the layer
      * @param maxY The max Y value of the layer
+     * @param windXVelocity The x component of the wind
+     * @param windYVelocity The y component of the wind
      */
-    public WindLayer(float minY, float maxY) {
+    public WindLayer(float minY, float maxY, float windXVelocity, float windYVelocity) {
         super(minY, maxY);
-        dx = 2;
+        windVelocity = new PVector(windXVelocity, windYVelocity);
     }
 
 
@@ -25,6 +27,6 @@ public class WindLayer extends Layer {
 
     @Override
     public void modify(Asteroid asteroid) {
-        // a.update(dx, 0);
+        asteroid.getVelocity().add(windVelocity); // This will constantly apply wind to the asteroid (accelerating it)
     }
 }
