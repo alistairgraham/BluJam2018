@@ -1,7 +1,4 @@
 
-
-import gameObjects.GameObject;
-
 public class Asteroid implements Drawable {
 	 
 	private float x;
@@ -17,7 +14,7 @@ public class Asteroid implements Drawable {
 		reset(dy);
 	}
 	
-	public void update() {
+	public void update(float dx, float dy) {
 		if (x < 0) {
 			dx = 0;
 			x = 0;

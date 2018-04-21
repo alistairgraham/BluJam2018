@@ -9,8 +9,9 @@ public class CloudLayer extends Layer {
 
     }
 
-    @Override
-    public void update() {
-
-    }
+	@Override
+	public void update(Asteroid a) {
+		// TODO Auto-generated method stub
+		
+	}
 }

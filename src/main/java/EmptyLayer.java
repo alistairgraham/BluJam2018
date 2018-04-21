@@ -12,7 +12,7 @@ public class EmptyLayer extends Layer {
     }
 
     @Override
-    public void update() {
+    public void update(Asteroid a) {
 
     }
 }

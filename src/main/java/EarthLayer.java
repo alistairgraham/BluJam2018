@@ -10,7 +10,7 @@ public class EarthLayer extends Layer {
     }
 
     @Override
-    public void update() {
+    public void update(Asteroid a) {
 
     }
 }

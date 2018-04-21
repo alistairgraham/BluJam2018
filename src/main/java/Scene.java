@@ -1,7 +1,3 @@
-import gameObjects.*;
-import gameObjects.layers.Layer;
-import gameObjects.layers.SpaceLayer;
-
 import java.util.HashSet;
 
 /**
@@ -16,23 +12,22 @@ public class Scene {
     public Scene(){
         asteroid = new Asteroid();
         layers = new Layer[5];
-        layers = new SpaceLayer();
-        
-        //layers.add(l);
+        layers[0] = new SpaceLayer();
+        layers[1] = new CloudLayer();
+        layers[2] = new WindLayer();
+        layers[3] = new EmptyLayer();
+        layers[4] = new EarthLayer();
     }
 
     public Asteroid getAsteroid() {
         return asteroid;
     }
 
-    public HashSet<Layer> getLayers(){
+    public Layer[] getLayers(){
         return layers;
     }
 
     public void update(){
         asteroid.update();
-        for(Layer layer : layers) layer.update();
-    }
-
-
-}
+        for(Layer layer : layers) layer.update(asteroid);
+	}	}

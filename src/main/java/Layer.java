@@ -1,8 +1,5 @@
 
 
-import gameObjects.Asteroid;
-import gameObjects.GameObject;
-
 /**
  * Created by sam on 20/04/18.
  * Abstract Layer class to create Layer objects
