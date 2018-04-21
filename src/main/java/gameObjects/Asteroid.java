@@ -6,14 +6,15 @@ public class Asteroid implements GameObject {
 	 
 	private float x;
 	private float y;
-	private float vel;
+	private float dx;
+	private float dy;
 	final float size = 20;
 	public final static float screenWidth = 100;
 	// PImage img;
 
 	public Asteroid() {
-		float velocity = 1;
-		reset(velocity);
+		float dy = 1;
+		reset(dy);
 	}
 	
 	public void update() {
@@ -26,10 +27,10 @@ public class Asteroid implements GameObject {
 		
 	}
 	
-	public void reset(float velocity) {
+	public void reset(float dy) {
 		this.x = (float) Math.random();  //need to change this for width
 		this.y = 0;
-		this.vel = velocity;
+		this.dy = dy;
 	}
 	
 	//----------------------------------Getter and setters------------------------//
@@ -49,12 +50,20 @@ public class Asteroid implements GameObject {
 		this.y = y;
 	}
 
-	public float getVel() {
-		return vel;
+	public float getDY() {
+		return dy;
 	}
 
-	public void setVel(float vel) {
-		this.vel = vel;
+	public void setDY(float dy) {
+		this.dy = dy;
+	}
+	
+	public float getDX() {
+		return dx;
+	}
+
+	public void setDX(float dx) {
+		this.dx = dx;
 	}
 	//-------------------------------------------------------------------------------//
 	
