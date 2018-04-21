@@ -44,12 +44,11 @@ public class App extends PApplet{
 
     public void draw(){
         asteroid.draw(this);
-        for(Layer layer: layers) layer.draw(this);
+        for(Layer layer: layers) {
+            layer.draw(this);
+        }
 
-        earth.draw(this);
-        for(Layer layer: layers) layer.draw(this);
-        /*fill(color(0,255,0));
-        rect(200,400,300,500);*/
+        //earth.draw(this);
     }
 
     public static void main(String[] args) {
