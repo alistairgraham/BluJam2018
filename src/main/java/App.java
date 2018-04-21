@@ -22,8 +22,8 @@ public class App extends PApplet {
         ImageLoader.loadImageAsset("cloud1.png", "cloud", this, 100, 50);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height / 5));
-        layers.add(new WindLayer(height / 5, 2 * height / 5));
-        layers.add(new CloudLayer(2 * height / 5, 3 * height / 5));
+        //layers.add(new WindLayer(height / 5, 2 * height / 5));
+        //layers.add(new CloudLayer(2 * height / 5, 3 * height / 5));
         layers.add(new EmptyLayer(3 * height / 5, 4 * height / 5));
         //layers.add(new EarthLayer(4*height/5, height));
         asteroid = new Asteroid((float)((Math.random() * width*2/3) + width/6), 0, width / 48);
@@ -56,7 +56,6 @@ public class App extends PApplet {
         if (left || right) {
             asteroid.userMove(left);
         }
-
 
         asteroid.update(this);
 
@@ -135,11 +134,11 @@ public class App extends PApplet {
         if (key == CODED) {
             if (keyCode == LEFT) {
                 left = false;
-                asteroid.getVelocity().add(new PVector(-1,0));
+                //asteroid.getVelocity().add(new PVector(-1,0));
                 //cat.velLeft = new PVector(-3/2, 0);
             } else if (keyCode == RIGHT) {
                 right = false;
-                asteroid.getVelocity().add(new PVector(1,0));
+                //asteroid.getVelocity().add(new PVector(1,0));
                 //cat.velRight = new PVector(3/2, 0);
             }
         }

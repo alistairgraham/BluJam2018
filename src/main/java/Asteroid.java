@@ -24,6 +24,8 @@ public class Asteroid implements Drawable {
     private PVector position;
     private PVector velocity;
     private float diam;
+    private float maxVelX;
+
     public static final PVector accelX = new PVector(-0.2f, 0);
     public static final PVector gravity = new PVector(0f, 0.01f);
 
@@ -36,6 +38,7 @@ public class Asteroid implements Drawable {
 //		initialVelocity = new PVector(0,2);
 //		velocity = initialVelocity.copy();
         this.diam = diameter;
+        maxVelX = 4;
     }
 
     @Override
@@ -123,27 +126,36 @@ public class Asteroid implements Drawable {
     }
 
     public void update(App app) {
-        velocity.add(0, 1/10); // Temporary value for velocity
         position.add(velocity);
         velocity.add(gravity);
         if (position.x > app.width - 1) position.x = 1;
         if (position.x <= 0) position.x = app.width - 1;
-        if (position.y > app.height-1) reset();
+        if (position.y > app.height-1) reset(app);
         //position.x = Math.min(app.width - 1, Math.max(0, position.x));
+    }
+
+    public void affect(PVector effect) {
+        velocity.add(effect);
+        if (velocity.x > maxVelX) {
+            velocity.x = maxVelX;
+        }
+        else if (velocity.x < -maxVelX) {
+            velocity.x = -maxVelX;
+        }
     }
 
     public void userMove(boolean left){
 	    if (left) {
-            if (velocity.x>-6) {
+            if (velocity.x>-maxVelX) {
                 velocity.add(accelX);
-                if (velocity.x<-6) { velocity.x = -6; }
+                if (velocity.x<-maxVelX) { velocity.x = -maxVelX; }
             }
             position.add(accelX);
         }
         else {
-            if (velocity.x<6) {
+            if (velocity.x<maxVelX) {
                 velocity.add(accelX.mult(-1));
-                if (velocity.x>6) { velocity.x = 6; }
+                if (velocity.x>maxVelX) { velocity.x = maxVelX; }
             }
             position.add(accelX.mult(-1));
         }
@@ -165,8 +177,9 @@ public class Asteroid implements Drawable {
         this.velocity = velocity;
     }
 
-    public void reset() {
-        position = initialPosition.copy();
-        velocity = initialVelocity.copy();
+    public void reset(App app) {
+        app.setAsteroid(new Asteroid((float)((Math.random() * app.width*2/3) + app.width/6), 0, app.width / 48));
+//        position = initialPosition.copy();
+//        velocity = initialVelocity.copy();
     }
 }

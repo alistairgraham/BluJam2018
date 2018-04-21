@@ -21,7 +21,7 @@ public class Earth {
 
     public void update(App app) {
         Asteroid asrd = app.getAsteroid();
-        if (asteroidIsColliding(asrd)) explode(asrd);
+        if (asteroidIsColliding(asrd)) explode(asrd, app);
     }
 
     public void draw(PApplet app) {
@@ -44,11 +44,11 @@ public class Earth {
         return pixels[(int)(y/pixelSize)][(int)(x/pixelSize)];
     }
 
-    private void explode(Asteroid asteroid){
+    private void explode(Asteroid asteroid, App app){
 
         PVector velocity = asteroid.getVelocity();
 
-        if(velocity.mag() < 1) asteroid.reset();
+        if(velocity.mag() < 1) asteroid.reset(app);
 
         if(asteroidIsColliding(asteroid)){
             float velX = velocity.x;

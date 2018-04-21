@@ -44,6 +44,8 @@ public class WindLayer extends Layer {
 
     @Override
     public void modify(Asteroid a) {
-        if(contains(a)) a.getVelocity().add(windVelocity); // This will constantly apply wind to the asteroid (accelerating it)
+        if (contains(a)) { //a.getVelocity().add(windVelocity); // This will constantly apply wind to the asteroid (accelerating it)
+            a.affect(windVelocity);
+        }
     }
 }
