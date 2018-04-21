@@ -27,6 +27,14 @@ public class App extends PApplet{
         InputHandler.keyDown.put(keyCode, false);
     }
 
+    public void settings() {
+        fullScreen();
+    }
+
+    public void setup() {
+        ellipse(width/2, height/2, height, height);
+    }
+
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
     	// Use processing to set frame rate
