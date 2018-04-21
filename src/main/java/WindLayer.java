@@ -30,7 +30,8 @@ public class WindLayer extends Layer {
     public WindLayer(float minY, float maxY) {
         super(minY, maxY);
         double rand = Math.random();
-        float windXVelocity = MIN_X_VELOCITY + (MAX_X_VELOCITY-MIN_X_VELOCITY) * (rand<0.5 ? (float) Math.random() : (float) -Math.random());
+        float windXVelocity = (MAX_X_VELOCITY-MIN_X_VELOCITY)*((rand<0.5) ? (float) Math.random(): (float)-Math.random())
+                + ((rand<0.5) ? MIN_X_VELOCITY : -MIN_X_VELOCITY);
         windVelocity = new PVector(windXVelocity, 0);
     }
 
