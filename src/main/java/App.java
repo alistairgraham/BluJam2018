@@ -52,8 +52,6 @@ public class App extends PApplet{
         for(Layer layer: layers) layer.draw(this);
 
         earth.draw(this);
-        /*fill(color(0,255,0));
-        rect(200,400,300,500);*/
         earth.explode(asteroid);
     }
 
