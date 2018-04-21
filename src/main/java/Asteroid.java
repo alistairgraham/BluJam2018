@@ -1,3 +1,5 @@
+import processing.core.PApplet;
+
 public class Asteroid implements Drawable {
 	 
 	private float x;
@@ -12,7 +14,12 @@ public class Asteroid implements Drawable {
 		float dy = 1;
 		reset();
 	}
-	
+
+	@Override
+	public void draw(PApplet pApplet) {
+
+	}
+
 	public void update(float dx) {
 	    x += dx;
 	    y += dy;

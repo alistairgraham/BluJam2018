@@ -1,3 +1,5 @@
+import processing.core.PApplet;
+
 import java.awt.*;
 
 /**
@@ -12,13 +14,13 @@ public class CircleBoi implements Drawable{
         colour = Color.BLACK;
     }
 
-    @Override
-    public void draw() {
-
-    }
-
     boolean contains(float x, float y) {
         //TODO implement this method
         return false;
+    }
+
+    @Override
+    public void draw(PApplet pApplet) {
+
     }
 }
