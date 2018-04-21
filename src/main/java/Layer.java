@@ -29,5 +29,11 @@ public abstract class Layer implements Drawable {
         return yPos <= maxY && yPos >= minY;
     }
 
+    public float getMinY() {
+        return minY;
+    }
 
+    public float getMaxY() {
+        return maxY;
+    }
 }

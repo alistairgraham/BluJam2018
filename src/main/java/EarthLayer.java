@@ -21,9 +21,7 @@ public class EarthLayer extends Layer {
 
     @Override
     public void draw(PApplet pApplet) {
-//        for (CircleBoi c : circleBois) {
-//            c.draw();
-//        }
+        pApplet.rect(super.getMinY(), super.getMaxY(), );
     }
 
     @Override
