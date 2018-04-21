@@ -21,7 +21,6 @@ public class EarthLayer extends Layer {
 
     @Override
     public void draw(PApplet pApplet) {
-        pApplet.rect(super.getMinY(), super.getMaxY(), );
     }
 
     @Override
