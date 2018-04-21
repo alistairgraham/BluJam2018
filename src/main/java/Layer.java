@@ -5,16 +5,28 @@
  * Abstract Layer class to create Layer objects
  */
 public abstract class Layer implements Drawable {
-    private float minY;
+    private float minY; // Y coordinates increase from the top of the screen to the bottom of the screen
     private float maxY;
-    private float minX = 0;
-    //private float maxX = screenWidth;
-    
 
-    public abstract void update(Asteroid a);
+    /**
+     * Default constructor for the Layer
+     * @param minY The min Y value of the layer
+     * @param maxY The max Y value of the layer
+     */
+    public Layer(float minY, float maxY){
+        this.minY = minY;
+        this.maxY = maxY;
+    }
 
-    public boolean contains(Asteroid a){
-        return a.getY() <= maxY && a.getY() >= minY;
+    /**
+     * Updates the objects within the layer and acts on the asteroid if it exists
+     * @param asteroid The asteroid in the game
+     */
+    public abstract void update(Asteroid asteroid);
+
+    public boolean contains(Asteroid asteroid){
+        float yPos = asteroid.getY();
+        return yPos <= maxY && yPos >= minY;
     }
 
 
