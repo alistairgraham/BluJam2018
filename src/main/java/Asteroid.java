@@ -3,11 +3,16 @@ import processing.core.PVector;
 
 public class Asteroid implements Drawable {
 
+	private PVector initialPosition;
+	private PVector initialVelocity;
+
 	private PVector position;
 	private PVector velocity;
 
 	public Asteroid(float xPos, float yPos) {
+		initialPosition = new PVector(xPos, yPos);
 		position = new PVector(xPos, yPos);
+		initialVelocity = new PVector(0,0);
 		velocity = new PVector(0, 0); // Default velocity vector
 	}
 
@@ -44,5 +49,10 @@ public class Asteroid implements Drawable {
 
 	public void setVelocity(PVector velocity) {
 		this.velocity = velocity;
+	}
+
+	public void reset(){
+		position = initialPosition.copy();
+		velocity = initialVelocity.copy();
 	}
 }
