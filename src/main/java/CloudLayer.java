@@ -16,6 +16,8 @@ public class CloudLayer extends Layer {
 
     @Override
     public void draw(PApplet pApplet) {
+        pApplet.color(10, 10, 200);
+        pApplet.rect(0, getMinY(), pApplet.width, getMaxY()-getMinY());
     }
 
 
