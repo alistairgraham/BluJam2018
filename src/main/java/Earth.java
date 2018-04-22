@@ -88,10 +88,13 @@ public class Earth {
 
         private void draw(int x, int y, PApplet app) {
             app.noStroke();
-            if(!destroyed) app.fill(this.color);
-            else app.fill(app.color(50, 35, 29)); //hole
-
-            app.rect(x, y, pixelSize, pixelSize);
+            if(!destroyed) {
+                app.fill(this.color);
+                app.rect(x, y, pixelSize, pixelSize);
+            }
+            else {
+                app.fill(app.color(50, 35, 29)); //hole
+            }
         }
     }
 }
