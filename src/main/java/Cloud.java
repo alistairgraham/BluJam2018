@@ -22,10 +22,10 @@ public class Cloud extends GameObject{
 
     public void update(App app){
         // check asteroid collision
-//        Asteroid asteroid = app.getAsteroid();
-//        if (containsAsteroid(asteroid)){
-//            asteroid.getVelocity().mult(-0.5f);
-//        }
+        Asteroid asteroid = app.getAsteroid();
+        if (containsAsteroid(asteroid)){
+            asteroid.getVelocity().add(0f, -0.1f);
+        }
 
         // update cloud
         position.add(velocity);
