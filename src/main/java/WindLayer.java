@@ -42,16 +42,13 @@ public class WindLayer extends Layer {
 
     @Override
     public void draw(PApplet pApplet) {
-        pApplet.fill(pApplet.color(176,225,242));
-        pApplet.rect(0, getMinY(), pApplet.width, (getMaxY()-getMinY()));
-
-
         drawArrows(pApplet);
     }
 
     private void drawArrows(PApplet pApplet){
         float yBuffer = 50f;
         float xBuffer = 50f;
+
         float width = 100f;
         float height = getMaxY()-getMinY();
         float windStrength = windVelocity.mag();

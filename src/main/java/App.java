@@ -87,7 +87,6 @@ public class App extends PApplet {
 
         }
 
-        for(Layer layer: layers) layer.draw(this);
 
         noStroke();
         int dy = (int) (height * 0.85) / layerColors.size();
@@ -108,6 +107,8 @@ public class App extends PApplet {
         text(text, width/2, (earth.yOffset + height)/2);
 
         //earth.draw(this);
+        for(Layer layer: layers) layer.draw(this);
+        earth.draw(this);
         asteroid.draw(this);
 
     }
