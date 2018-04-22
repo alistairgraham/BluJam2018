@@ -78,6 +78,7 @@ public class Earth {
      * Private inner class Earth Pixel to draw every pixel of the earth
      * author is BJ <3
      * */
+
     private class EarthPixel {
         private boolean destroyed = false;
         private int color;
