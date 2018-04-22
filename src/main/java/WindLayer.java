@@ -36,7 +36,7 @@ public class WindLayer extends Layer {
         double rand = Math.random();
         float windXVelocity = (MAX_X_VELOCITY-MIN_X_VELOCITY)*((rand<0.5) ? (float) Math.random(): (float)-Math.random())
                 + ((rand<0.5) ? MIN_X_VELOCITY : -MIN_X_VELOCITY);
-        windVelocity = new PVector(windXVelocity, 0);
+        windVelocity = new PVector(0, 0);
     }
 
 
@@ -54,7 +54,7 @@ public class WindLayer extends Layer {
         float xSpacing = 100f;
 
         float arrowHeight = layerHeight - (2*yBuffer);
-        float arrowWidth = 30f;
+        float arrowWidth = Math.min(30f, 500 * Math.abs(windVelocity.x));
 
         float windStrength = windVelocity.mag();
 
@@ -65,7 +65,7 @@ public class WindLayer extends Layer {
         pApplet.strokeWeight(25f * windStrength);
 
         for(int count = 0 ; count <20; count++){
-            float startX = isLeft? xBuffer + count*(arrowWidth + xSpacing) : pApplet.width - xBuffer - count*(arrowWidth + xSpacing);
+            float startX = isLeft? xBuffer + count*(xSpacing) : pApplet.width - xBuffer - count*(xSpacing) - 18;
             float endX = isLeft? startX + arrowWidth : startX - arrowWidth;
             pApplet.line(startX, getMinY() + yBuffer, endX, getMinY()+ arrowHeight/2 + yBuffer);
             pApplet.line(startX, getMaxY() - yBuffer, endX, getMinY()+ arrowHeight/2 + yBuffer);
@@ -76,6 +76,10 @@ public class WindLayer extends Layer {
     public void modify(App app) {
         if (contains(app.getAsteroid())) { //a.getVelocity().add(windVelocity); // This will constantly apply wind to the asteroid (accelerating it)
             app.getAsteroid().affect(windVelocity);
+        }
+
+        if (app.millis() % 5 == 0) {
+            windVelocity.add((float) ((Math.random() - 0.5) * 0.03), 0f);
         }
     }
 

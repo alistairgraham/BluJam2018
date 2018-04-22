@@ -30,9 +30,9 @@ public class App extends PApplet {
 //        ImageLoader.loadImageAsset("wind1.png", "wind", this, 150, 75);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height / 5));
-        layers.add(new WindLayer(height / 5, 2 * height / 5));
-        layers.add(new WindLayer(2 * height / 5, 3 * height / 5));
-        layers.add(new WindLayer(3 * height / 5, 4 * height / 5));
+        layers.add(new WindLayer(5 * height / 10, 6 * height / 10));
+        layers.add(new WindLayer(6 * height / 10, 7 * height / 10));
+        layers.add(new WindLayer(7 * height / 10, 8 * height / 10));
         asteroid = new Asteroid((float)((Math.random() * width*2/3) + width/6), 0, width / 48);
         earth = new Earth(4 * height / 5, height, this);
 
