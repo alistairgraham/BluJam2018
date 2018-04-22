@@ -25,8 +25,8 @@ public class App extends PApplet {
         layers.add(new SpaceLayer(0, height / 5));
         layers.add(new WindLayer(height / 5, 2 * height / 5));
         layers.add(new CloudLayer(2 * height / 5, 3 * height / 5));
-        layers.add(new EmptyLayer(3 * height / 5, 4 * height / 5));
-        layers.add(new EarthLayer(4*height/5, height));
+        layers.add(new WindLayer(3 * height / 5, 4 * height / 5));
+//        layers.add(new EarthLayer(4*height/5, height));
         asteroid = new Asteroid((float)((Math.random() * width*2/3) + width/6), 0, width / 48);
         earth = new Earth(4 * height / 5, height, this);
 
@@ -62,8 +62,7 @@ public class App extends PApplet {
 
 
         for(Layer layer: layers){
-            if(layer.getClass() != CloudLayer.class) layer.modify(asteroid);
-            else ((CloudLayer)layer).modify(this);
+            layer.modify(this);
         }
         for(Layer layer: layers) layer.draw(this);
 

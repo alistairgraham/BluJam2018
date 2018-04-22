@@ -29,17 +29,13 @@ public class CloudLayer extends Layer {
     }
 
     @Override
-    public void modify(Asteroid asteroid) {
-
-    }
-
-    @Override
     public void draw(PApplet pApplet) {
         pApplet.fill(pApplet.color(190, 230, 244));
         pApplet.rect(0, getMinY(), pApplet.width, getMaxY()-getMinY());
         for (Cloud c : clouds) c.draw(pApplet);
     }
 
+    @Override
     public void modify(App app) {
         for(Cloud c : clouds) c.update(app);
     }

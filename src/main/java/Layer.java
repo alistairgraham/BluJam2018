@@ -20,9 +20,9 @@ public abstract class Layer implements Drawable {
 
     /**
      * Modify the asteroid by the rules of the given layer.
-     * @param asteroid The asteroid in the game
+     * @param app The app
      */
-    public abstract void modify(Asteroid asteroid);
+    public abstract void modify(App app);
 
     public boolean contains(Asteroid asteroid){
         float yPos = asteroid.getY();

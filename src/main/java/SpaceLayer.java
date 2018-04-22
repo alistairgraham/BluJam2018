@@ -25,7 +25,7 @@ public class SpaceLayer extends Layer {
     }
 
     @Override
-    public void modify(Asteroid asteroid) {
+    public void modify(App app) {
         //a.update(0, dy);
     }
 }

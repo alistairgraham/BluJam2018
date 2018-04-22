@@ -25,7 +25,7 @@ public class EmptyLayer extends Layer {
     }
 
     @Override
-    public void modify(Asteroid asteroid) {
+    public void modify(App app) {
 
     }
 }
