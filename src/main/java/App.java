@@ -51,7 +51,7 @@ public class App extends PApplet {
 
         printArray(PFont.list());
 
-        font = createFont("Arial",64,true);
+        font = createFont("SansSerif.bold",64,true);
 //        space = loadImage("space.jpg");
 //        space.resize(width, height/5);
 //        green = loadImage("green.jpg");

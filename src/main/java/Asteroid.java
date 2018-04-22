@@ -51,7 +51,7 @@ public class Asteroid implements Drawable {
 
     @Override
     public void draw(PApplet pApplet) {
-        PVector rV = new PVector(-velocity.x, -velocity.y).mult(10);
+        PVector rV = new PVector(-velocity.x, -velocity.y).mult(23);
         PVector pV = new PVector(velocity.y, -velocity.x).normalize().mult(diam/2);
         pApplet.fill(pApplet.color(249, 181, 59));
         PVector p1 = rV.add(new PVector(rV.x, rV.y).normalize().mult(20)).add(position);
