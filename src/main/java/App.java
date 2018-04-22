@@ -17,7 +17,9 @@ public class App extends PApplet {
     public static PImage green;
     private boolean left;
     private boolean right;
-    public float groundHeight = 4*height/5;
+    public final float groundHeight = 4*height/5;
+
+    public PFont font;
 
     private List<ColorCycle> layerColors = new ArrayList<>();
 
@@ -38,6 +40,7 @@ public class App extends PApplet {
         right = false;
 
         layerColors.add(new ColorCycle(color(26, 27, 28), color(26, 27, 28), 1));
+        layerColors.add(new ColorCycle(color(26, 27, 28), color(26, 27, 28), 1));
         layerColors.add(new ColorCycle(color(22, 23, 35), color(34, 35, 55), 30));
         layerColors.add(new ColorCycle(color(34, 51, 65), color(57, 84, 108), 30));
         layerColors.add(new ColorCycle(color(40, 59, 75), color(97, 121, 142), 30));
@@ -45,14 +48,10 @@ public class App extends PApplet {
         layerColors.add(new ColorCycle(color(116, 140, 171), color(191, 202, 216), 15));
         layerColors.add(new ColorCycle(color(116, 140, 171), color(191, 202, 216), 15));
         layerColors.add(new ColorCycle(color(116, 140, 171), color(191, 202, 216), 15));
-        layerColors.add(new ColorCycle(color(116, 140, 171), color(191, 202, 216), 15));
-        layerColors.add(new ColorCycle(color(116, 140, 171), color(191, 202, 216), 15));
-        layerColors.add(new ColorCycle(color(116, 140, 171), color(191, 202, 216), 15));
-
-
 
         printArray(PFont.list());
 
+        font = createFont("Arial",64,true);
 //        space = loadImage("space.jpg");
 //        space.resize(width, height/5);
 //        green = loadImage("green.jpg");
@@ -87,8 +86,10 @@ public class App extends PApplet {
             layer.modify(this);
 
         }
+
         for(Layer layer: layers) layer.draw(this);
 
+        noStroke();
         int dy = (int) (height * 0.85) / layerColors.size();
         int y = 0;
         for (ColorCycle c : layerColors) {
@@ -97,7 +98,16 @@ public class App extends PApplet {
             y += dy;
         }
 
-        earth.draw(this);
+        fill(color(50, 35, 29));
+        rect(0, earth.yOffset, width, height - groundHeight);
+
+        textAlign(CENTER, CENTER);
+        fill(color(0, 0, 0));
+        textFont(font);
+        String text = Integer.toBinaryString(0x10000000 | ((millis() / 250) * 4)).substring(1);
+        text(text, width/2, (earth.yOffset + height)/2);
+
+        //earth.draw(this);
         asteroid.draw(this);
 
     }

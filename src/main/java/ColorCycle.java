@@ -16,7 +16,6 @@ public class ColorCycle {
     public int getColor(int time) {
         float secs = (float) time / 1000f;
         float amt = (secs % (float)length)/ (float) length;
-        System.out.println(amt);
         if (amt < 0.5f) {
             return PApplet.lerpColor(
                     start,

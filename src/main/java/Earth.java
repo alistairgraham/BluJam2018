@@ -6,7 +6,7 @@ import processing.core.PVector;
 public class Earth {
     private int pixelSize = 10;
     private EarthPixel[][] pixels;
-    private float yOffset;
+    public float yOffset;
 
     public Earth(int minY, int maxY, App app) {
         yOffset = minY;
