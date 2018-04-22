@@ -20,7 +20,7 @@ public class EmptyLayer extends Layer {
 
     @Override
     public void draw(PApplet pApplet) {
-        pApplet.fill(pApplet.color(207, 242, 184));
+        pApplet.fill(pApplet.color(205, 237, 243));
         pApplet.rect(0, getMinY(), pApplet.width, getMaxY()-getMinY());
     }
 

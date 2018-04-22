@@ -82,22 +82,6 @@ public class App extends PApplet {
 
     }
 
-    public void mousePressed() {
-        InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.PRESS));
-    }
-
-
-    public void mouseReleased() {
-        InputHandler.addEvent(new MouseEvent(this, mouseX, mouseY, MouseEvent.Type.RELEASE));
-    }
-
-//    public void keyPressed() {
-//        InputHandler.keyDown.put(keyCode, true);
-//    }
-//
-//    public void keyReleased() {
-//        InputHandler.keyDown.put(keyCode, false);
-//    }
 
     public void settings() {
         fullScreen();

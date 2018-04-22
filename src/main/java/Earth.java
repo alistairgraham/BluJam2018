@@ -12,9 +12,12 @@ public class Earth {
         yOffset = minY;
 
         pixels = new EarthPixel[(maxY-minY)/pixelSize][app.width/pixelSize];
-        for (int y = 0; y < pixels.length; y++) {
+        for (int x = 0; x < pixels[0].length; x++) {
+            pixels[0][x] = new EarthPixel(app.color(132,160,88));
+        }
+        for (int y = 1; y < pixels.length; y++) {
             for (int x = 0; x < pixels[0].length; x++) {
-                pixels[y][x] = new EarthPixel();
+                pixels[y][x] = new EarthPixel(app.color(100, 69, 58));
             }
         }
     }
@@ -55,7 +58,7 @@ public class Earth {
             float ratio = velX/velocity.mag();
 
             float destructionSize = velocity.mag()*2;
-            int startDestruction = (int) (asteroid.getX()/pixelSize - ratio*destructionSize/2);
+            int startDestruction = (int) (asteroid.getX()/pixelSize - destructionSize/2 + ratio*destructionSize/2);
 
 
             for(int x = Math.max(startDestruction, 0); x < startDestruction+destructionSize && x< pixels[0].length && x >= 0; x++){
@@ -77,12 +80,15 @@ public class Earth {
      * */
     private class EarthPixel {
         private boolean destroyed = false;
-        private EarthPixel() {}
+        private int color;
+        private EarthPixel(int color) {
+            this.color = color;
+        }
 
         private void draw(int x, int y, PApplet app) {
             app.noStroke();
-            if(!destroyed) app.fill(app.color(100, 69, 58));
-            else app.fill(app.color(50, 35, 29));
+            if(!destroyed) app.fill(this.color);
+            else app.fill(app.color(50, 35, 29)); //hole
 
             app.rect(x, y, pixelSize, pixelSize);
         }

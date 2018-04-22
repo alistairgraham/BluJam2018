@@ -56,6 +56,7 @@ public class Asteroid implements Drawable {
         pApplet.fill(pApplet.color(249, 181, 59));
         PVector p1 = rV.add(new PVector(rV.x, rV.y).normalize().mult(20)).add(position);
         pApplet.triangle(p1.x, p1.y,
+
 //<<<<<<< HEAD
 //                position.x+pV.x, position.y+pV.y,
 //                position.x-pV.x, position.y-pV.y);
@@ -139,7 +140,6 @@ public class Asteroid implements Drawable {
         if (position.x > app.width - 1) position.x = 1;
         if (position.x <= 0) position.x = app.width - 1;
         if (position.y > app.height-1) reset(app);
-        //position.x = Math.min(app.width - 1, Math.max(0, position.x));
     }
 
     public void affect(PVector effect) {
@@ -157,7 +157,7 @@ public class Asteroid implements Drawable {
 	    if (left) {
             //if (velocity.x>-maxVelX) {
                 velocity.add(accelX);
-                if (velocity.x<-maxVelX) { velocity.x = -maxVelX; }
+                if (velocity.x < -maxVelX) { velocity.x = -maxVelX; }
            // }
             position.add(accelX);
         }
