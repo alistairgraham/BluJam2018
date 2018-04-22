@@ -25,12 +25,12 @@ public class App extends PApplet {
         frameRate(120);
         ImageLoader.loadImageAsset("green.jpg", "green", this, 1, 1);
         ImageLoader.loadImageAsset("cloud1.png", "cloud", this, 100, 50);
-        ImageLoader.loadImageAsset("wind1.png", "wind", this, 150, 75);
+//        ImageLoader.loadImageAsset("wind1.png", "wind", this, 150, 75);
         layers = new ArrayList<>();
         layers.add(new SpaceLayer(0, height / 5));
         layers.add(new WindLayer(height / 5, 2 * height / 5));
-        layers.add(new CloudLayer(2 * height / 5, 3 * height / 5));
-        layers.add(new EmptyLayer(3 * height / 5, 4 * height / 5));
+        layers.add(new WindLayer(2 * height / 5, 3 * height / 5));
+        layers.add(new WindLayer(3 * height / 5, 4 * height / 5));
         asteroid = new Asteroid((float)((Math.random() * width*2/3) + width/6), 0, width / 48);
         earth = new Earth(4 * height / 5, height, this);
 
