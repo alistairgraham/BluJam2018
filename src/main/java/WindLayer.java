@@ -46,32 +46,29 @@ public class WindLayer extends Layer {
     }
 
     private void drawArrows(PApplet pApplet){
-        float yBuffer = 50f;
-        float xBuffer = 50f;
 
-        float width = 100f;
-        float height = getMaxY()-getMinY();
+        float layerHeight = getMaxY()-getMinY();
+
+        float yBuffer = 10;
+        float xBuffer = 0;
+        float xSpacing = 100f;
+
+        float arrowHeight = layerHeight - (2*yBuffer);
+        float arrowWidth = 30f;
+
         float windStrength = windVelocity.mag();
-        //0.05 -> one
-        //0.05 - 0.07 -> two
-        //more is 3.
-        int numArrows = windStrength>0.07? 3 : windStrength>0.05? 2 : 1;
+
         boolean isLeft = windVelocity.x > 0f;
 
-        /*
-        pApplet.stroke(pApplet.color(0, 0, 0));
-        pApplet.strokeWeight(5f);
-        pApplet.line(xBuffer, getMinY() + yBuffer, width, getMinY()+ height/2);
-        pApplet.line(xBuffer, getMaxY() - yBuffer, width, getMinY()+ height/2);
-//        pApplet.line(xBuffer, getMinY() + yBuffer, width, height/2 - yBuffer);
-        */
-        pApplet.stroke(pApplet.color(0, 0, 0));
-        pApplet.strokeWeight(5f);
-        for(int count = 0 ; count < numArrows; count++){
-            float startX = isLeft? xBuffer + count*(width) : pApplet.width - xBuffer - count*width;
-            float endX = isLeft? startX + width : startX - width;
-            pApplet.line(startX, getMinY() + yBuffer, endX, getMinY()+ height/2);
-            pApplet.line(startX, getMaxY() - yBuffer, endX, getMinY()+ height/2);
+        pApplet.stroke(pApplet.color(217, 223, 232));
+//        pApplet.stroke(pApplet.color(190, 230, 244));
+        pApplet.strokeWeight(25f * windStrength);
+
+        for(int count = 0 ; count <20; count++){
+            float startX = isLeft? xBuffer + count*(arrowWidth + xSpacing) : pApplet.width - xBuffer - count*(arrowWidth + xSpacing);
+            float endX = isLeft? startX + arrowWidth : startX - arrowWidth;
+            pApplet.line(startX, getMinY() + yBuffer, endX, getMinY()+ arrowHeight/2 + yBuffer);
+            pApplet.line(startX, getMaxY() - yBuffer, endX, getMinY()+ arrowHeight/2 + yBuffer);
         }
     }
 
