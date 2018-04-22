@@ -103,7 +103,7 @@ public class App extends PApplet {
         textAlign(CENTER, CENTER);
         fill(color(0, 0, 0));
         textFont(font);
-        String text = Integer.toBinaryString(0x10000000 | ((millis() / 250) * 4)).substring(1);
+        String text = Integer.toBinaryString(0x10000000 | ((millis() / 100) * 4)).substring(1);
         text(text, width/2, (earth.yOffset + height)/2);
 
         //earth.draw(this);
